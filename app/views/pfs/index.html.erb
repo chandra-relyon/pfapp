@@ -1,0 +1,23 @@
+<h1>listing all todos</h1>
+
+<p>
+<%= link_to "create pf", new_pf_path %>
+ </p>
+<table>
+<tr>
+<th>
+Name
+</th>
+<th>
+Pfamount
+</th>
+</tr>
+<% @pf.each do |pf| %>
+<tr>
+<td><%= pf.name %></td>
+<td><%= pf.pfamount %></td>
+<td><%= link_to "Edit", edit_pf_path(pf) %></td>
+<td><%= link_to "Show", pf_path(pf) %></td>
+</tr>
+<% end %>
+</table>

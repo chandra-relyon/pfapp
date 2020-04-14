@@ -1,3 +1,10 @@
-<h1>Name <%= @pf.name %>
+<h1>showing all pf </h1>
+<p>
+<Name <%= @pf.name %>
+</p>
+<p>
 amount <%= @pf.pfamount %>
+</p>
+<%= link_to "edit pf", edit_pf_path(@pf) %>
+<%= link_to "back to listing", pf_path %>
 </h1>

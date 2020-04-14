@@ -28,7 +28,9 @@ end
             render 'edit'
         end
     end
-
+def index
+    @pf=Pf.all
+end
  private
   def pf_params
     params.require(:pf).permit(:name, :pfamount)
