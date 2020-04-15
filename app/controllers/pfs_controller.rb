@@ -1,5 +1,5 @@
 class PfsController < ApplicationController
-
+before_action :set_pf, only:[:edit, :update, :show, :destroy]
     def new
         @pf=Pf.new
     end
@@ -13,14 +13,16 @@ else
 end
     end 
 
-    def show
-        @pf=Pf.find(params[:id])
-    end
+def show
+    
+ end
+
+
     def edit
-        @pf=Pf.find(params[:id])
+     
        end
     def update
-        @pf=Pf.find(params[:id])
+    
         if @pf.update(pf_params) 
             flash[:notice]="pf is sucessfully completed"
         redirect_to pf_path(@pf)
@@ -29,9 +31,19 @@ end
         end
     end
 def index
-    @pf=Pf.all
+    @pfs=Pf.all
+end
+def destroy
+   
+    @pf.destroy
+    flash[:notice]="PF succcessfully deleted"
+    redirect_to pfs_path
+    
 end
  private
+ def set_pf
+    @pf=Pf.find(params[:id]) 
+ end
   def pf_params
     params.require(:pf).permit(:name, :pfamount)
   end

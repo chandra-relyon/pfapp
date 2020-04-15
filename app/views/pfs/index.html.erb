@@ -12,12 +12,14 @@ Name
 Pfamount
 </th>
 </tr>
-<% @pf.each do |pf| %>
+<% @pfs.each do |pf| %>
 <tr>
 <td><%= pf.name %></td>
 <td><%= pf.pfamount %></td>
 <td><%= link_to "Edit", edit_pf_path(pf) %></td>
 <td><%= link_to "Show", pf_path(pf) %></td>
+<td><%= link_to "Delete", pf_path(pf), method: :delete, data: {confirm: " are you sure"} %></td>
+
 </tr>
 <% end %>
 </table>
